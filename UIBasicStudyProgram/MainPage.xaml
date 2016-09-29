@@ -1,0 +1,57 @@
+﻿<Page
+    x:Class="UIBasicStudyProgram.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UIBasicStudyProgram"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.BottomAppBar>
+        <CommandBar x:Name="bottomAppBar" 
+                    IsOpen="False"
+                    ClosedDisplayMode="Compact"
+                    >
+            <AppBarButton x:Name="searchButton" Label="Search" Icon="Find" Click="searchButton_Click"/>
+        </CommandBar>
+    </Page.BottomAppBar>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <!--question exception-->
+        <!--<Grid.ChildrenTransitions>
+            <EntranceThemeTransition/>
+        </Grid.ChildrenTransitions>-->
+
+        <Hub SectionHeaderClick="Hub_SectionHeaderClick" HorizontalAlignment="Stretch">
+            <Hub.Header>
+                <TextBlock Text="Hello UIControls" HorizontalAlignment="Stretch" Height="auto"/>
+            </Hub.Header>
+
+            <HubSection Width="380" Padding="20" VerticalAlignment="Top">
+                <DataTemplate>
+                    <Grid Margin="0,10,0,0">
+                        <RichTextBlock FontSize="14">
+                            <Paragraph>this app is a companion to the
+                                <Hyperlink NavigateUri="http:msdn.microsoft.com/library/windows/apps/dn263191.aspx">Windows Store app UI</Hyperlink>
+                                <Bold> Windows Dev Center</Bold>
+                            </Paragraph>
+                            <Paragraph>
+                                <LineBreak/>Each Control has a dark theme and a light theme.
+                            </Paragraph>
+                            <Paragraph>
+                                <LineBreak/>Most control pages show the basic control usage in XAML.
+                            </Paragraph>
+                        </RichTextBlock>
+                    </Grid>
+                </DataTemplate>
+            </HubSection>
+
+            <HubSection x:Name="GroupsHubSection" Padding="20" Tag="ControlsGallery" Background="{StaticResource AppBarBackground}">
+                <HubSection.Header>
+                    <TextBlock x:Uid="ByFunctionHeader" TextLineBounds="TrimToBaseline" OpticalMarginAlignment="TrimSideBearings"/>
+                </HubSection.Header>
+            </HubSection>
+        </Hub>
+
+    </Grid>
+</Page>
