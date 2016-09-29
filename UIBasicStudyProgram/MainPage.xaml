@@ -5,6 +5,7 @@
     xmlns:local="using:UIBasicStudyProgram"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="using:ListViewSample.Model"
     mc:Ignorable="d">
 
     <Page.BottomAppBar>
@@ -21,7 +22,6 @@
         <!--<Grid.ChildrenTransitions>
             <EntranceThemeTransition/>
         </Grid.ChildrenTransitions>-->
-
         <Hub SectionHeaderClick="Hub_SectionHeaderClick" HorizontalAlignment="Stretch">
             <Hub.Header>
                 <TextBlock Text="Hello UIControls" HorizontalAlignment="Stretch" Height="auto"/>
@@ -33,25 +33,49 @@
                         <RichTextBlock FontSize="14">
                             <Paragraph>this app is a companion to the
                                 <Hyperlink NavigateUri="http:msdn.microsoft.com/library/windows/apps/dn263191.aspx">Windows Store app UI</Hyperlink>
-                                <Bold> Windows Dev Center</Bold>
+                                <Bold>Windows Dev Center</Bold>
                             </Paragraph>
                             <Paragraph>
-                                <LineBreak/>Each Control has a dark theme and a light theme.
+                                <LineBreak/> Each Control has a dark theme and a light theme.
                             </Paragraph>
                             <Paragraph>
-                                <LineBreak/>Most control pages show the basic control usage in XAML.
+                                <LineBreak/> Most control pages show the basic control usage in XAML.
                             </Paragraph>
                         </RichTextBlock>
                     </Grid>
                 </DataTemplate>
             </HubSection>
 
-            <HubSection x:Name="GroupsHubSection" Padding="20" Tag="ControlsGallery" Background="{StaticResource AppBarBackground}">
+            <HubSection x:Name="GroupsHubSection" Padding="20"  VerticalAlignment="Stretch"  Tag="ControlsGallery" Background="{StaticResource AppBarBackground}">
                 <HubSection.Header>
-                    <TextBlock x:Uid="ByFunctionHeader" TextLineBounds="TrimToBaseline" OpticalMarginAlignment="TrimSideBearings"/>
+                    <TextBlock x:Uid="ByFunctionHeader" TextLineBounds="TrimToBaseline"  OpticalMarginAlignment="TrimSideBearings"/>
                 </HubSection.Header>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <GridView VerticalAlignment="Stretch" Width="500"
+                              ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                            <!--<GridView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <ItemsWrapGrid></ItemsWrapGrid>
+                                </ItemsPanelTemplate>
+                            </GridView.ItemsPanel>-->
+                            <x:String>Item1</x:String>
+                            <x:String>Item2</x:String>
+                            <x:String>Item3</x:String>
+                            <x:String>Item4</x:String>
+                        </GridView>
+                        <TextBlock x:Name="selectedItem" Height=" 100" Width="100"/>
+                        <TextBlock x:Name="selectedIndex" Height=" 100" Width="100"/>
+                        <TextBlock x:Name="selectedItemCount" Height=" 100" Width="100"/>
+                        <TextBlock x:Name="addedItems" Height=" 100" Width="100"/>
+                        <TextBlock x:Name="removedItems" Height=" 100" Width="100"/>
+                    </StackPanel>
+                </DataTemplate>
             </HubSection>
         </Hub>
 
     </Grid>
+    <Page.Resources>
+
+    </Page.Resources>
 </Page>
