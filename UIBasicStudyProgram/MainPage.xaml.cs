@@ -7,12 +7,13 @@ using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using ListViewSample.Model;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using UIBasicStudyProgram.ControlPage;
+using UIBasicStudyProgram.NewFolder1;
 
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -25,9 +26,11 @@ namespace UIBasicStudyProgram
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private List<Book> Books;
         public MainPage()
         {
             this.InitializeComponent();
+            Books = BookManager.GetBooks();
         }
 
         private void searchButton_Click(object sender, RoutedEventArgs e)
@@ -38,6 +41,22 @@ namespace UIBasicStudyProgram
         private void Hub_SectionHeaderClick(object sender, HubSectionHeaderClickEventArgs e)
         {
 
+        }
+
+        private void GridView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            string item = e.ClickedItem.ToString();
+            switch (item)
+            {
+                case "Date":
+                    Frame.Navigate(typeof(SplitViewPage));
+                    break;
+            }
+        }
+
+        private void backButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (Frame.CanGoBack) this.Frame.GoBack();
         }
     }
 }

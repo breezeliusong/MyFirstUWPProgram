@@ -5,14 +5,14 @@
     xmlns:local="using:UIBasicStudyProgram"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:data="using:ListViewSample.Model"
+    xmlns:data="using:UIBasicStudyProgram.NewFolder1"
     mc:Ignorable="d">
 
     <Page.BottomAppBar>
         <CommandBar x:Name="bottomAppBar" 
                     IsOpen="False"
-                    ClosedDisplayMode="Compact"
-                    >
+                    ClosedDisplayMode="Compact">
+            <AppBarButton x:Name="backButton" Label="Back" Icon="Back" Click="backButton_Click"/>
             <AppBarButton x:Name="searchButton" Label="Search" Icon="Find" Click="searchButton_Click"/>
         </CommandBar>
     </Page.BottomAppBar>
@@ -46,33 +46,53 @@
                 </DataTemplate>
             </HubSection>
 
-            <HubSection x:Name="GroupsHubSection" Padding="20"  VerticalAlignment="Stretch"  Tag="ControlsGallery" Background="{StaticResource AppBarBackground}">
-                <HubSection.Header>
-                    <TextBlock x:Uid="ByFunctionHeader" TextLineBounds="TrimToBaseline"  OpticalMarginAlignment="TrimSideBearings"/>
-                </HubSection.Header>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <GridView VerticalAlignment="Stretch" Width="500"
-                              ScrollViewer.HorizontalScrollBarVisibility="Auto">
-                            <!--<GridView.ItemsPanel>
+            <HubSection x:Name="GroupsHubSection"
+                        Padding="20" 
+                        VerticalAlignment="Stretch" 
+                        Tag="ControlsGallery" 
+                        Width="400"
+                        Background="{StaticResource AppBarBackground}">
+                <DataTemplate >
+                    <StackPanel>
+                        <!--<GridView VerticalAlignment="Stretch"
+                                  Width="Auto"
+                                  ItemClick="GridView_ItemClick"
+                              IsItemClickEnabled="True"
+                                  ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                            -->
+                        <!--<GridView.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <ItemsWrapGrid></ItemsWrapGrid>
                                 </ItemsPanelTemplate>
                             </GridView.ItemsPanel>-->
-                            <x:String>Item1</x:String>
-                            <x:String>Item2</x:String>
-                            <x:String>Item3</x:String>
-                            <x:String>Item4</x:String>
-                        </GridView>
-                        <TextBlock x:Name="selectedItem" Height=" 100" Width="100"/>
-                        <TextBlock x:Name="selectedIndex" Height=" 100" Width="100"/>
-                        <TextBlock x:Name="selectedItemCount" Height=" 100" Width="100"/>
-                        <TextBlock x:Name="addedItems" Height=" 100" Width="100"/>
-                        <TextBlock x:Name="removedItems" Height=" 100" Width="100"/>
+                        <!--
+                            <x:String>Date</x:String>
+                            <x:String>Grid</x:String>
+                            <x:String>Page3</x:String>
+                            <x:String>Page4</x:String>
+                        </GridView>-->
                     </StackPanel>
                 </DataTemplate>
             </HubSection>
         </Hub>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="100"/>
+            </Grid.RowDefinitions>
+            <GridView ItemsSource="{x:Bind Books}" >
+                <GridView.ItemTemplate>
+                    <DataTemplate x:DataType="data:Book">
+                        <StackPanel>
+                            <Image Width="150" Source="{x:Bind CoverImage}"/>
+                            <TextBlock FontSize="18" Text="{x:Bind Title}"/>
+                            <TextBlock FontSize="10" Text="{x:Bind Author}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
+
+        </Grid>
 
     </Grid>
     <Page.Resources>
