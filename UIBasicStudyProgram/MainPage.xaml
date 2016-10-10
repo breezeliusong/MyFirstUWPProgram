@@ -5,7 +5,7 @@
     xmlns:local="using:UIBasicStudyProgram"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:data="using:UIBasicStudyProgram.NewFolder1"
+    xmlns:data="using:UIBasicStudyProgram.DataModel"
     mc:Ignorable="d">
 
     <Page.BottomAppBar>
@@ -22,7 +22,7 @@
         <!--<Grid.ChildrenTransitions>
             <EntranceThemeTransition/>
         </Grid.ChildrenTransitions>-->
-        <Hub SectionHeaderClick="Hub_SectionHeaderClick" HorizontalAlignment="Stretch">
+        <!--<Hub SectionHeaderClick="Hub_SectionHeaderClick" HorizontalAlignment="Stretch">
             <Hub.Header>
                 <TextBlock Text="Hello UIControls" HorizontalAlignment="Stretch" Height="auto"/>
             </Hub.Header>
@@ -54,7 +54,7 @@
                         Background="{StaticResource AppBarBackground}">
                 <DataTemplate >
                     <StackPanel>
-                        <!--<GridView VerticalAlignment="Stretch"
+                        --><!--<GridView VerticalAlignment="Stretch"
                                   Width="Auto"
                                   ItemClick="GridView_ItemClick"
                               IsItemClickEnabled="True"
@@ -70,27 +70,55 @@
                             <x:String>Grid</x:String>
                             <x:String>Page3</x:String>
                             <x:String>Page4</x:String>
-                        </GridView>-->
+                        </GridView>--><!--
                     </StackPanel>
                 </DataTemplate>
             </HubSection>
-        </Hub>
+        </Hub>-->
+        <Frame >
+            <Frame.ContentTransitions>
+                <TransitionCollection>
+                    <NavigationThemeTransition/>
+                </TransitionCollection>
+            </Frame.ContentTransitions>
+        </Frame>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition/>
-                <RowDefinition Height="100"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
-            <GridView ItemsSource="{x:Bind Books}" >
+            <GridView ItemsSource="{x:Bind Books}" 
+                      ItemClick="GridView_ItemClick_1" 
+                      IsItemClickEnabled="True" >
                 <GridView.ItemTemplate>
                     <DataTemplate x:DataType="data:Book">
                         <StackPanel>
-                            <Image Width="150" Source="{x:Bind CoverImage}"/>
+                            <Image Width="150"  Height="150" Source="{x:Bind CoverImage}"/>
                             <TextBlock FontSize="18" Text="{x:Bind Title}"/>
                             <TextBlock FontSize="10" Text="{x:Bind Author}"/>
                         </StackPanel>
                     </DataTemplate>
                 </GridView.ItemTemplate>
             </GridView>
+            <TextBlock Name="MyTextBlock" Grid.Row="1"/>
+            <Button Name="Popupbutton" Grid.Row="2" 
+                    Height="50" Width="100" Background="Green"
+                    Click="Popupbutton_Click"/>
+            <Popup VerticalOffset="100" HorizontalOffset="10" x:Name="StandardPopup">
+                <Border BorderBrush="{StaticResource ApplicationForegroundThemeBrush}" 
+                Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
+                BorderThickness="2" Width="100" Height="100">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Text="Simple Popup" FontSize="24.667" HorizontalAlignment="Center"/>
+                        <Button Content="Close" Click="ClosePopupClicked" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+            </Popup>
+            <Popup x:Name="ParentedPopup" HorizontalOffset="50" VerticalOffset="200">
+                <local:PopupInputContent />
+            </Popup>
+
 
         </Grid>
 
