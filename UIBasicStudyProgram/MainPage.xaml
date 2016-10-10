@@ -84,23 +84,23 @@
         </Frame>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition/>
+                <RowDefinition />
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
-            <GridView ItemsSource="{x:Bind Books}" 
+            <GridView ItemsSource="{Binding }" 
                       ItemClick="GridView_ItemClick_1" 
                       IsItemClickEnabled="True" >
                 <GridView.ItemTemplate>
-                    <DataTemplate x:DataType="data:Book">
+                    <DataTemplate>
                         <StackPanel>
-                            <Image Width="150"  Height="150" Source="{x:Bind CoverImage}"/>
-                            <TextBlock FontSize="18" Text="{x:Bind Title}"/>
-                            <TextBlock FontSize="10" Text="{x:Bind Author}"/>
+                            <Image Width="150"  Height="150" Source="{Binding CoverImage}"/>
+                            <TextBlock FontSize="18" Text="{Binding Title}"/>
+                            <TextBlock FontSize="10" Text="{Binding Author}"/>
                         </StackPanel>
                     </DataTemplate>
                 </GridView.ItemTemplate>
-            </GridView>
+            </GridView> 
             <TextBlock Name="MyTextBlock" Grid.Row="1"/>
             <Button Name="Popupbutton" Grid.Row="2" 
                     Height="50" Width="100" Background="Green"

@@ -28,13 +28,14 @@ namespace UIBasicStudyProgram
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private List<Book> Books;
+        private List<Book> Books { get; set; }
         public MainPage()
         {
             this.InitializeComponent();
             Books = BookManager.GetBooks();
             Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested +=
                 App_BackRequested;
+            this.DataContext = Books;
         }
 
         private void App_BackRequested(object sender, BackRequestedEventArgs e)

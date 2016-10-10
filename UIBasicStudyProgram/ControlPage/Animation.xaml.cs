@@ -71,5 +71,11 @@ namespace UIBasicStudyProgram.ControlPage
             var customControl = (CustomControl1)sender;
             customControl.textblock = "you are custom control";
         }
+
+        private void StartAnimation(object sender, PointerRoutedEventArgs e)
+        {
+            sto.Begin();
+            myStoryboard.Begin();
+        }
     }
 }

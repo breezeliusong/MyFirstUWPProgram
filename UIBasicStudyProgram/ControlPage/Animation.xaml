@@ -145,24 +145,47 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.Items>
                 <StackPanel>
-                    
-                
-                <Rectangle Fill="Red" Width="10" Height="10" Margin="10"/>
-                <Rectangle Fill="Green" Width="10" Height="10" Margin="10"/>
-                <Rectangle Fill="Red" Width="10" Height="10" Margin="10"/>
-                <Rectangle Fill="Green" Width="10" Height="10" Margin="10"/>
-                <Rectangle Fill="Red" Width="10" Height="10" Margin="10"/>
-                <Rectangle Fill="Green" Width="10" Height="10" Margin="10"/>
-                <Rectangle Fill="Red" Width="10" Height="10" Margin="10"/>
-                <Rectangle Fill="Green" Width="10" Height="10" Margin="10"/>
-                <Rectangle Fill="Red" Width="10" Height="10" Margin="10"/>
+
+
+                    <Rectangle Fill="Red" Width="10" Height="10" Margin="10"/>
+                    <Rectangle Fill="Green" Width="10" Height="10" Margin="10"/>
+                    <Rectangle Fill="Red" Width="10" Height="10" Margin="10"/>
+                    <Rectangle Fill="Green" Width="10" Height="10" Margin="10"/>
+                    <Rectangle Fill="Red" Width="10" Height="10" Margin="10"/>
+                    <Rectangle Fill="Green" Width="10" Height="10" Margin="10"/>
+                    <Rectangle Fill="Red" Width="10" Height="10" Margin="10"/>
+                    <Rectangle Fill="Green" Width="10" Height="10" Margin="10"/>
+                    <Rectangle Fill="Red" Width="10" Height="10" Margin="10"/>
                 </StackPanel>
             </ItemsControl.Items>
         </ItemsControl>
         <myCustom:CustomControl1 Grid.Row="2" ImageSource="/Assets/01.jpg"
                                   textblock="hello world" Tapped="CustomControl1_Tapped" >
-            
+
         </myCustom:CustomControl1>
+        <StackPanel Margin="15"
+                    Grid.Row="2"
+                    Grid.Column="1">
+            <StackPanel.Resources>
+                <Storyboard x:Name="myStoryboard">
+                    <DoubleAnimation
+       Storyboard.TargetName="myTransform"
+       Storyboard.TargetProperty="Angle"
+       From="0" To="360" Duration="0:0:5" 
+       RepeatBehavior="Forever" />
+                </Storyboard>
+                <Storyboard x:Name="sto">
+                    <DoubleAnimation Storyboard.TargetName="myTransform" 
+                                     Storyboard.TargetProperty="CenterX" From="0" To=" 100" Duration="0:0:5"/>
+                </Storyboard>
+            </StackPanel.Resources>
+            <Rectangle Width="50" Height="50" Fill="RoyalBlue"
+   PointerPressed="StartAnimation">
+                <Rectangle.RenderTransform>
+                    <RotateTransform x:Name="myTransform" Angle="45" CenterX="25" CenterY="25" />
+                </Rectangle.RenderTransform>
+            </Rectangle>
+        </StackPanel>
     </Grid>
-    
+
 </Page>
