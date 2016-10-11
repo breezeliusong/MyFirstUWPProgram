@@ -101,6 +101,9 @@
     <Compile Include="ControlPage\Date.xaml.cs">
       <DependentUpon>Date.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ControlPage\FacebookPage.xaml.cs">
+      <DependentUpon>FacebookPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CustomControl\CustomControl1.xaml.cs">
       <DependentUpon>CustomControl1.xaml</DependentUpon>
     </Compile>
@@ -146,6 +149,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ControlPage\FacebookPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CustomControl\CustomControl1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -159,7 +166,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Reference Include="RestSharp">
+      <HintPath>E:\WeiboSDKForWinRT_V1.0\RestSharp.winmd</HintPath>
+    </Reference>
+    <Reference Include="WeiboSDKForWinRT">
+      <HintPath>E:\WeiboSDKForWinRT_V1.0\WeiboSDKForWinRT.winmd</HintPath>
+    </Reference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

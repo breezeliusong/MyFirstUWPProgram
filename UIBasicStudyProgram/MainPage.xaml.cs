@@ -88,7 +88,7 @@ namespace UIBasicStudyProgram
                     Frame.Navigate(typeof(Animation), item, new DrillInNavigationTransitionInfo());
                     break;
                 case 3:
-                    Frame.Navigate(typeof(Animation), item, new DrillInNavigationTransitionInfo());
+                    Frame.Navigate(typeof(FacebookPage), item, new DrillInNavigationTransitionInfo());
                     break;
 
             }
@@ -103,6 +103,15 @@ namespace UIBasicStudyProgram
         private void ClosePopupClicked(object sender, RoutedEventArgs e)
         {
             if (StandardPopup.IsOpen) StandardPopup.IsOpen = false;
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            // Put the following code in your mainform loaded event
+            // Note that this will not work in the App.xaml.cs Loaded
+#if DEBUG
+            System.Diagnostics.Debug.WriteLine("Windows Store SID = " + Microsoft.Toolkit.Uwp.Services.Facebook.FacebookService.Instance.WindowsStoreId);
+#endif
         }
     }
 }
