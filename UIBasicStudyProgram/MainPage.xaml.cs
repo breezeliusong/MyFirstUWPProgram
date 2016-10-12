@@ -33,9 +33,13 @@ namespace UIBasicStudyProgram
         {
             this.InitializeComponent();
             Books = BookManager.GetBooks();
-            Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested +=
-                App_BackRequested;
+
+            //using binding should set this
             this.DataContext = Books;
+
+            //windows phone backButton return to the front page codes until 54
+            SystemNavigationManager.GetForCurrentView().BackRequested +=
+                App_BackRequested;
         }
 
         private void App_BackRequested(object sender, BackRequestedEventArgs e)
@@ -72,7 +76,12 @@ namespace UIBasicStudyProgram
 
         private void backButton_Click(object sender, RoutedEventArgs e)
         {
-            if (Frame.CanGoBack) this.Frame.GoBack();
+            Frame rootFrame = Window.Current.Content as Frame;
+            if (rootFrame == null) return;
+            if (rootFrame.CanGoBack )
+            {
+                rootFrame.GoBack();
+            }
         }
 
         private void GridView_ItemClick_1(object sender, ItemClickEventArgs e)
@@ -89,6 +98,9 @@ namespace UIBasicStudyProgram
                     break;
                 case 3:
                     Frame.Navigate(typeof(FacebookPage), item, new DrillInNavigationTransitionInfo());
+                    break;
+                case 4:
+                    Frame.Navigate(typeof(AutoLayoutPage));
                     break;
 
             }
