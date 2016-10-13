@@ -125,6 +125,8 @@
 
     </Grid>
     <Page.Resources>
-
+        <ResourceDictionary>
+            <x:String x:Key="hello">nihao</x:String>
+        </ResourceDictionary>
     </Page.Resources>
 </Page>

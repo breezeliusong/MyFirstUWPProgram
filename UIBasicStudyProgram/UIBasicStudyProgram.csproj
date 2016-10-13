@@ -206,6 +206,7 @@
     </Reference>
     <Reference Include="WeiboSDKForWinRT">
       <HintPath>E:\WeiboSDKForWinRT_V1.0\WeiboSDKForWinRT.winmd</HintPath>
+      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

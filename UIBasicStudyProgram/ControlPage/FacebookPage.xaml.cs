@@ -43,12 +43,12 @@ namespace UIBasicStudyProgram.ControlPage
         private void SinaButton_Click(object sender, RoutedEventArgs e)
         {
            
-            var oauthClient = new WeiboSDKForWinRT.ClientOAuth();
-            oauthClient.BeginOAuth();
-            if (oauthClient.IsAuthorized == false)
-            {
+            //var oauthClient = new WeiboSDKForWinRT.ClientOAuth();
+            //oauthClient.BeginOAuth();
+            //if (oauthClient.IsAuthorized == false)
+            //{
 
-            }
+            //}
         }
     }
 }
