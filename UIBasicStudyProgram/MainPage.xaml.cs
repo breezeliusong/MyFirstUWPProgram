@@ -102,6 +102,9 @@ namespace UIBasicStudyProgram
                 case 4:
                     Frame.Navigate(typeof(AutoLayoutPage));
                     break;
+                case 5:
+                    Frame.Navigate(typeof(WeatherPage));
+                    break;
 
             }
         }
