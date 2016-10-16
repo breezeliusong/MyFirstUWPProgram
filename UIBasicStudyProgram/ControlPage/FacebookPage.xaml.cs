@@ -1,9 +1,12 @@
 ﻿using Microsoft.Toolkit.Uwp.Services.Facebook;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
+using WeiboSDKForWinRT;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI;
@@ -27,6 +30,9 @@ namespace UIBasicStudyProgram.ControlPage
         public FacebookPage()
         {
             this.InitializeComponent();
+            SdkData.AppKey = "495741593";
+            SdkData.AppSecret = "7945cd862162c2565048ff76d7d0af8f";
+            SdkData.RedirectUri = "http://www.baidu.com";
         }
 
         private async void Button_Click(object sender, RoutedEventArgs e)
@@ -40,15 +46,15 @@ namespace UIBasicStudyProgram.ControlPage
 
         }
 
-        private void SinaButton_Click(object sender, RoutedEventArgs e)
+        private async  void SinaButton_Click(object sender, RoutedEventArgs e)
         {
-           
-            //var oauthClient = new WeiboSDKForWinRT.ClientOAuth();
-            //oauthClient.BeginOAuth();
-            //if (oauthClient.IsAuthorized == false)
-            //{
-
-            //}
+            var oauthClient = new WeiboSDKForWinRT.ClientOAuth();
+            oauthClient.BeginOAuth();
+            var client=new HttpClient();
+            var response =await client.GetAsync("https://api.weibo.com/oauth2/authorize?client_id=495741593&response_type=code&redirect_uri=http://www.baidu.com&AccessKeyDisplayDismissed=client");
+            var testresult =await  response.Content.ReadAsStringAsync();
+            var result = testresult.ToString();
+            Debug.WriteLine(result);
         }
     }
 }

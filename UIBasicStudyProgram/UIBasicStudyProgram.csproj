@@ -202,11 +202,10 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="RestSharp">
-      <HintPath>E:\WeiboSDKForWinRT_V1.0\RestSharp.winmd</HintPath>
+      <HintPath>..\..\..\GoogleExploreDownload\RestSharp.winmd</HintPath>
     </Reference>
     <Reference Include="WeiboSDKForWinRT">
-      <HintPath>E:\WeiboSDKForWinRT_V1.0\WeiboSDKForWinRT.winmd</HintPath>
-      <Private>True</Private>
+      <HintPath>..\..\..\GoogleExploreDownload\WeiboSDKForWinRT.winmd</HintPath>
     </Reference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
