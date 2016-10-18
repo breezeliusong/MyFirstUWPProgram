@@ -27,9 +27,16 @@ namespace UIBasicStudyProgram.ControlPage
     /// </summary>
     public sealed partial class FacebookPage : Page
     {
+            private string code;
         public FacebookPage()
         {
             this.InitializeComponent();
+            MyWebView.LoadCompleted += (s, ar) => 
+            {
+                string ss = ar.Uri.ToString();
+                Debug.WriteLine(ar.Uri.ToString());
+                code = ar.Uri.ToString();
+            };
             SdkData.AppKey = "495741593";
             SdkData.AppSecret = "7945cd862162c2565048ff76d7d0af8f";
             SdkData.RedirectUri = "http://www.baidu.com";
@@ -46,11 +53,12 @@ namespace UIBasicStudyProgram.ControlPage
 
         }
 
-        private  void SinaButton_Click(object sender, RoutedEventArgs e)
+        private async void SinaButton_Click(object sender, RoutedEventArgs e)
         {
-            var oauthClient = new WeiboSDKForWinRT.ClientOAuth();
-            oauthClient.BeginOAuth();
+            //var oauthClient = new WeiboSDKForWinRT.ClientOAuth();
+            //oauthClient.BeginOAuth();
             MyWebView.Navigate(new Uri("https://api.weibo.com/oauth2/authorize?client_id=495741593&response_type=code&redirect_uri=http://www.baidu.com&AccessKeyDisplayDismissed=client"));
+            
             //var client=new HttpClient();
             //var response =await client.GetAsync("https://api.weibo.com/oauth2/authorize?client_id=495741593&response_type=code&redirect_uri=http://www.baidu.com&AccessKeyDisplayDismissed=client");
             //var testresult =await  response.Content.ReadAsStringAsync();
