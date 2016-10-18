@@ -11,9 +11,12 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
             <RowDefinition Height="100"/>
+            <RowDefinition />
 
         </Grid.RowDefinitions>
         <Button  Name="MyButton" Content="Login in facebook" Click="Button_Click" Grid.Row="0"/>
         <Button Name="SinaButton" Content="Login in sina" Click="SinaButton_Click" Grid.Row="1"/>
+        <WebView Name="MyWebView" Grid.Row="2"/>
+
     </Grid>
 </Page>

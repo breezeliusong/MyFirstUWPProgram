@@ -44,6 +44,8 @@
                     </VisualState>
                 </VisualStateGroup>
             </VisualStateManager.VisualStateGroups>
+            
+            
             <Image Source="{x:Bind Items.Image}"/>
             <StackPanel Grid.Row="1">
                 <TextBlock Text="{x:Bind Items.Headline}" Name="HeadlineTextBlock"/>

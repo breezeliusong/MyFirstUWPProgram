@@ -107,6 +107,8 @@
                           Margin="10,0,0,0">
                     <GridView.ItemTemplate>
                         <DataTemplate x:DataType="data:MyItems">
+                            
+                            <!--template-->
                             <!--<Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto"/>
@@ -119,6 +121,8 @@
                                     <TextBlock Text="{x:Bind DateLine}"/>
                                 </StackPanel>
                             </Grid>-->
+                            
+                            <!--usercontrol-->
                             <MyControl:ItemsControl/>
                         </DataTemplate>
                     </GridView.ItemTemplate>

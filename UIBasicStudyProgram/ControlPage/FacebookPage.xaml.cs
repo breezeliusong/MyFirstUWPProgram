@@ -46,15 +46,16 @@ namespace UIBasicStudyProgram.ControlPage
 
         }
 
-        private async  void SinaButton_Click(object sender, RoutedEventArgs e)
+        private  void SinaButton_Click(object sender, RoutedEventArgs e)
         {
             var oauthClient = new WeiboSDKForWinRT.ClientOAuth();
             oauthClient.BeginOAuth();
-            var client=new HttpClient();
-            var response =await client.GetAsync("https://api.weibo.com/oauth2/authorize?client_id=495741593&response_type=code&redirect_uri=http://www.baidu.com&AccessKeyDisplayDismissed=client");
-            var testresult =await  response.Content.ReadAsStringAsync();
-            var result = testresult.ToString();
-            Debug.WriteLine(result);
+            MyWebView.Navigate(new Uri("https://api.weibo.com/oauth2/authorize?client_id=495741593&response_type=code&redirect_uri=http://www.baidu.com&AccessKeyDisplayDismissed=client"));
+            //var client=new HttpClient();
+            //var response =await client.GetAsync("https://api.weibo.com/oauth2/authorize?client_id=495741593&response_type=code&redirect_uri=http://www.baidu.com&AccessKeyDisplayDismissed=client");
+            //var testresult =await  response.Content.ReadAsStringAsync();
+            //var result = testresult.ToString();
+            //Debug.WriteLine(result);
         }
     }
 }

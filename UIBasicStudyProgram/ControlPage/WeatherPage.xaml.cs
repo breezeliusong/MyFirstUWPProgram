@@ -33,7 +33,7 @@ namespace UIBasicStudyProgram.ControlPage
             //RootObject weather =await OpenWeatherProxy.GetWeather();
             //ResultTextBlock.Text = weather.query.count.ToString()+","+weather.query.results.channel.description;
             RootObject weather = await OpenWeatherProxy.GetWeather("无锡");
-            ResultTextBlock.Text = weather.data.city;
+            ResultTextBlock.Text=weather.data.city;
 
         }
     }

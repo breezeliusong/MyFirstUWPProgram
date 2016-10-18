@@ -22,11 +22,11 @@ namespace UIBasicStudyProgram.DataModel
         public static List<Book> GetBooks()
         {
             var books = new List<Book>();
-            books.Add(new Book { BookId = 1, Title = "Book1", Author = "future", CoverImage = "/Assets/01.jpg" });
-            books.Add(new Book { BookId = 2, Title = "Book2", Author = "now", CoverImage = "/Assets/02.jpg" });
-            books.Add(new Book { BookId = 3, Title = "Book3", Author = "ago", CoverImage = "/Assets/03.jpg" });
-            books.Add(new Book { BookId = 4, Title = "Book4", Author = "future", CoverImage = "/Assets/01.jpg" });
-            books.Add(new Book { BookId = 5, Title = "Book5", Author = "now", CoverImage = "/Assets/02.jpg" });
+            books.Add(new Book { BookId = 1, Title = "Date", Author = "future", CoverImage = "/Assets/01.jpg" });
+            books.Add(new Book { BookId = 2, Title = "Animation", Author = "now", CoverImage = "/Assets/02.jpg" });
+            books.Add(new Book { BookId = 3, Title = "FacebookPage", Author = "ago", CoverImage = "/Assets/03.jpg" });
+            books.Add(new Book { BookId = 4, Title = "AutoLayoutPage", Author = "future", CoverImage = "/Assets/01.jpg" });
+            books.Add(new Book { BookId = 5, Title = "WeatherPage", Author = "now", CoverImage = "/Assets/02.jpg" });
             books.Add(new Book { BookId = 6, Title = "Book6", Author = "ago", CoverImage = "/Assets/03.jpg" });
             books.Add(new Book { BookId = 7, Title = "Book7", Author = "future", CoverImage = "/Assets/01.jpg" });
             books.Add(new Book { BookId = 8, Title = "Book8", Author = "now", CoverImage = "/Assets/02.jpg" });

@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Net.Http;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
 using System.Text;
@@ -14,15 +15,25 @@ namespace UIBasicStudyProgram.DataModel
     {
         public async static Task<RootObject> GetWeather(string city)
         {
-            var http = new HttpClient();
-            string ss = string.Format("http://wthrcdn.etouch.cn/weather_mini?city={0}", city);
-            var response = await http.GetAsync(new Uri(ss));
-            var result = await response.Content.ReadAsStringAsync();
-            var testresult = result.ToString();
+            Windows.Web.Http.HttpClient client = new Windows.Web.Http.HttpClient();
+            var response = await client.GetBufferAsync(new Uri("http://wthrcdn.etouch.cn/weather_mini?city=无锡"));
+            var bytes = response.ToArray();
+            Debug.WriteLine(bytes.ToString());
+            //var json = Encoding.UTF8.GetString(bytes);
             var serializer = new DataContractJsonSerializer(typeof(RootObject));
-            var ms = new MemoryStream(Encoding.UTF8.GetBytes(result));
-            var data = (RootObject)serializer.ReadObject(ms);
+            var ms = new MemoryStream(bytes);
+            var data=(RootObject)serializer.ReadObject(ms);
             return data;
+
+            //var http = new HttpClient();
+            //string ss = string.Format("http://wthrcdn.etouch.cn/weather_mini?city={0}", city);
+            //var response = await http.GetAsync(new Uri(ss));
+            //var result = await response.Content.ReadAsStringAsync();
+            //var testresult = result.ToString();
+            //var serializer = new DataContractJsonSerializer(typeof(RootObject));
+            //var ms = new MemoryStream(Encoding.UTF8.GetBytes(result));
+            //var data = (RootObject)serializer.ReadObject(ms);
+            //return data;
 
 
             //    //var http = new HttpClient();
