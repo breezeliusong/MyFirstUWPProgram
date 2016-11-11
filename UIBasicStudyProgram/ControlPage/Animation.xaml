@@ -145,8 +145,6 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.Items>
                 <StackPanel>
-
-
                     <Rectangle Fill="Red" Width="10" Height="10" Margin="10"/>
                     <Rectangle Fill="Green" Width="10" Height="10" Margin="10"/>
                     <Rectangle Fill="Red" Width="10" Height="10" Margin="10"/>
@@ -169,22 +167,40 @@
             <StackPanel.Resources>
                 <Storyboard x:Name="myStoryboard">
                     <DoubleAnimation
-       Storyboard.TargetName="myTransform"
-       Storyboard.TargetProperty="Angle"
-       From="0" To="360" Duration="0:0:5" 
-       RepeatBehavior="Forever" />
+                        Storyboard.TargetName="myTransform"
+                        Storyboard.TargetProperty="Angle"
+                        From="0" To="360" Duration="0:0:5" 
+                        RepeatBehavior="Forever" />
                 </Storyboard>
                 <Storyboard x:Name="sto">
                     <DoubleAnimation Storyboard.TargetName="myTransform" 
-                                     Storyboard.TargetProperty="CenterX" From="0" To=" 100" Duration="0:0:5"/>
+                                     Storyboard.TargetProperty="CenterX" 
+                                     From="0" To=" 100" Duration="0:0:5"/>
+                </Storyboard>
+
+                <!-- Animates the rectangle's opacity. -->
+                <Storyboard x:Name="myStoryboard1">
+                    <DoubleAnimation
+              Storyboard.TargetName="MyAnimatedRectangle"
+              Storyboard.TargetProperty="Opacity"
+              From="1.0" To="0.0" Duration="0:0:1"/>
+                </Storyboard>
+
+                <Storyboard x:Name="myStoryboard2">
+                <ColorAnimation Storyboard.TargetName="tb1" From="Red" To="Green"
+                    Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)"/>
                 </Storyboard>
             </StackPanel.Resources>
+            <!--a different area of the XAML-->
+            <Rectangle x:Name="MyAnimatedRectangle"
+      Width="300" Height="200" Fill="Blue"/>
             <Rectangle Width="50" Height="50" Fill="RoyalBlue"
-   PointerPressed="StartAnimation">
+                       PointerPressed="StartAnimation">
                 <Rectangle.RenderTransform>
                     <RotateTransform x:Name="myTransform" Angle="45" CenterX="25" CenterY="25" />
                 </Rectangle.RenderTransform>
             </Rectangle>
+
         </StackPanel>
     </Grid>
 
